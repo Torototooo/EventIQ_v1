@@ -1,9 +1,9 @@
 let meetups = [];
 let meetupBST = null;
 
-/* =============================
-   BINARY SEARCH TREE CLASS
-============================= */
+
+   //BINARY SEARCH TREE CLASS
+
 class MeetupBSTNode {
   constructor(meetup) {
     this.meetup = meetup;
@@ -65,7 +65,7 @@ class MeetupBST {
       results.push(node.meetup);
     }
 
-    // Search both subtrees (since we're matching substrings, not exact comparisons)
+    // Search both subtrees 
     this._searchNode(node.left, searchTerm, results);
     this._searchNode(node.right, searchTerm, results);
   }
@@ -85,9 +85,9 @@ class MeetupBST {
   }
 }
 
-/* ----------------------------
-   LOAD MEETUPS FROM API
----------------------------- */
+
+   //LOAD MEETUPS FROM API
+
 document.addEventListener("DOMContentLoaded", loadMeetups);
 
 function loadMeetups() {
@@ -96,7 +96,7 @@ function loadMeetups() {
     .then(data => {
       meetups = data;
       
-      // Build Binary Search Tree
+      
       meetupBST = new MeetupBST();
       meetups.forEach(meetup => {
         meetupBST.insert(meetup);
@@ -109,9 +109,9 @@ function loadMeetups() {
     });
 }
 
-/* ----------------------------
-   RENDER MEETUPS
----------------------------- */
+
+   //RENDER MEETUPS
+
 
 function renderMeetups(filtered = meetups) {
   const container = document.getElementById("meetupsContainer");
@@ -161,9 +161,9 @@ function renderMeetups(filtered = meetups) {
   });
 }
 
-/* ----------------------------
-   FILTER MEETUPS (using BST)
----------------------------- */
+
+   //FILTER MEETUPS (using BST)
+
 function filterMeetups() {
   const search = document.getElementById("searchInput").value.toLowerCase();
   const city = document.getElementById("cityFilter").value;
@@ -187,16 +187,15 @@ function filterMeetups() {
   renderMeetups(filtered);
 }
 
-/* -----------------------------
-   EVENT LISTENERS
------------------------------- */
+
+   //EVENT LISTENERS
+
 document.getElementById("searchInput").addEventListener("input", filterMeetups);
 document.getElementById("cityFilter").addEventListener("change", filterMeetups);
 document.getElementById("topicFilter").addEventListener("change", filterMeetups);
 
-/* -----------------------------
-   HELPERS
------------------------------- */
+
+
 function getMeetupTime(start, end) {
   if (!start || !end) return "Flexible";
 

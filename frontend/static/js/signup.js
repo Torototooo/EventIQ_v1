@@ -38,7 +38,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
     alert('Passwords do not match!');
     event.preventDefault();
   }
-  // reCAPTCHA validation would be handled server-side
+  
 });
 
 

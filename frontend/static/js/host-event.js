@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================
-       FORMAT (ONLINE / OFFLINE)
-    ========================== */
+    
+      // FORMAT (ONLINE / OFFLINE)
+    
     const formatOptions = document.querySelectorAll('input[name="format"]');
     const locationDetails = document.getElementById('locationDetails');
     const onlineDetails = document.getElementById('onlineDetails');
@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* =========================
-       PRIZES (HACKATHON ONLY)
-    ========================== */
+
+      // PRIZES (HACKATHON ONLY)
+
     const prizesToggle = document.getElementById('hasPrizes');
     const prizesDetails = document.getElementById('prizesDetails');
 
@@ -43,9 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* =========================
-       EVENT TYPE → SHOW PRIZES
-    ========================== */
+
+
     const eventTypeSelect = document.querySelector('select[name="event_type"]');
     const prizesSection = document.getElementById("prizesSection");
     const hackathonTimeline = document.getElementById("hackathonTimeline");
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (eventTypeSelect) {
         eventTypeSelect.addEventListener("change", toggleHackathonSections);
-        toggleHackathonSections(); // run once on load
+        toggleHackathonSections(); 
     }
 
 });

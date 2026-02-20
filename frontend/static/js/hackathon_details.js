@@ -20,11 +20,11 @@ function updateCountdown() {
   }
 }
 
-// Update countdown every second
+
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Add click handlers for interactive elements
+//  click handlers for interactive elements
 document.querySelectorAll('.skill-badge').forEach(badge => {
   badge.addEventListener('click', function() {
     this.style.transform = 'scale(0.95)';

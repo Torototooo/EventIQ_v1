@@ -56,7 +56,7 @@ body {
 }
 
 body::before{
-  content: "";/*“There is no content, so browser don’t generate this pseudo-element.”*/
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -152,7 +152,7 @@ section.container {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 16px;
-  /* box-shadow: 6px 6px 0 var(--ink); */
+  
   margin-bottom: 40px;
 }
 .carousel-viewport {
@@ -204,7 +204,7 @@ section.container {
 .hero-subtitle {
   font-size: 18px;
   font-weight: 600;
-  /*color: #444;*/
+  
   color: white;
   max-width: 520px;
 }
@@ -319,22 +319,20 @@ section.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;          /* ⬅ increase spacing between logos */
+  gap: 30px;          
   margin-top: 28px;
   margin-bottom: 12px;
-    /* keeps it responsive */
+  
 }
 
 
-/* ===============================
-   LOCAL MEETUPS (THEMED)
-================================ */
+/*LOCAL MEETUPS */
 .meetups-section {
   margin-top: 80px;
 }
 
 .meetups-header {
-  /* text-align: center; */
+  
   margin-bottom: 40px;
 }
 
@@ -346,7 +344,6 @@ section.container {
   opacity: 0.85;
 }
 
-/* HEADER ROW WITH VIEW MORE */
 .meetups-title-row {
   display: flex;
   justify-content: space-between;
@@ -354,7 +351,6 @@ section.container {
   gap: 20px;
 }
 
-/* View More Button */
 .view-more-btn {
   text-decoration: none;
   background: var(--neon);
@@ -372,7 +368,7 @@ section.container {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Mobile alignment */
+
 @media (max-width: 768px) {
   .meetups-title-row {
     flex-direction: column;
@@ -381,7 +377,7 @@ section.container {
 }
 
 
-/* Meetup Card */
+
 .meetup-card {
   position: relative;
   background: #ffffff;
@@ -392,7 +388,7 @@ section.container {
   height: 100%;
 }
 
-/* Tag + Date */
+
 .meetup-tag {
   display: inline-block;
   background: var(--neon);
@@ -411,7 +407,7 @@ section.container {
   color: var(--blue-strong);
 }
 
-/* Text */
+
 .meetup-card h5 {
   margin-top: 18px;
   font-weight: 900;
@@ -422,7 +418,7 @@ section.container {
   opacity: 0.9;
 }
 
-/* Info List */
+
 .meetup-info {
   list-style: none;
   padding: 0;
@@ -434,7 +430,7 @@ section.container {
   font-weight: 600;
 }
 
-/* Button */
+
 .meetup-btn {
   width: 100%;
   background: var(--blue-strong);
@@ -453,9 +449,7 @@ section.container {
 }
 
 
-/* ===============================
-   UPCOMING HACKATHONS (THEMED)
-================================ */
+/*UPCOMING HACKATHONS */
 .hackathons-section {
   margin-top: 80px;
 }
@@ -479,7 +473,7 @@ section.container {
   opacity: 0.85;
 }
 
-/* Hackathon Card */
+
 .hackathon-card {
   position: relative;
   background: #ffffff;
@@ -490,7 +484,7 @@ section.container {
   height: 100%;
 }
 
-/* Tag + Prize */
+
 .hackathon-tag {
   display: inline-block;
   background: var(--neon);
@@ -509,7 +503,7 @@ section.container {
   color: var(--blue-strong);
 }
 
-/* Text */
+
 .hackathon-card h5 {
   margin-top: 18px;
   font-weight: 900;
@@ -520,7 +514,7 @@ section.container {
   opacity: 0.9;
 }
 
-/* Info */
+
 .hackathon-info {
   list-style: none;
   padding: 0;
@@ -532,7 +526,7 @@ section.container {
   font-weight: 600;
 }
 
-/* Button */
+
 .hackathon-btn {
   width: 100%;
   background: var(--blue-strong);
@@ -550,7 +544,7 @@ section.container {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .hackathons-title-row {
     flex-direction: column;
@@ -558,9 +552,7 @@ section.container {
   }
 }
 
-/* ===============================
-   FEATURED WORKSHOPS (THEMED)
-================================ */
+/*FEATURED WORKSHOPS */
 .workshops-section {
   margin-top: 80px;
 }
@@ -584,7 +576,7 @@ section.container {
   opacity: 0.85;
 }
 
-/* Workshop Card */
+
 .workshop-card {
   position: relative;
   background: #ffffff;
@@ -595,7 +587,7 @@ section.container {
   height: 100%;
 }
 
-/* Tag + Price */
+
 .workshop-tag {
   display: inline-block;
   background: var(--neon);
@@ -614,7 +606,7 @@ section.container {
   color: var(--blue-strong);
 }
 
-/* Text */
+
 .workshop-card h5 {
   margin-top: 18px;
   font-weight: 900;
@@ -625,7 +617,7 @@ section.container {
   opacity: 0.9;
 }
 
-/* Info */
+
 .workshop-info {
   list-style: none;
   padding: 0;
@@ -637,7 +629,7 @@ section.container {
   font-weight: 600;
 }
 
-/* Button */
+
 .workshop-btn {
   width: 100%;
   background: var(--blue-strong);
@@ -655,7 +647,7 @@ section.container {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .workshops-title-row {
     flex-direction: column;
@@ -664,9 +656,7 @@ section.container {
 }
 
 
-/* ===============================
-   STAY UPDATED SECTION
-================================ */
+/*STAY UPDATED SECTION */
 .stay-updated-section {
   margin-top: 100px;
   margin-bottom: 80px;
@@ -706,7 +696,7 @@ section.container {
       background-color:var(--neon);
       box-shadow: 4px 4px 0 var(--ink);
 }
-/* Form */
+
 .stay-updated-form {
   display: flex;
   justify-content: center;
@@ -742,7 +732,7 @@ section.container {
   background: #ffe600;
 }
 
-/* Mobile */
+
 @media (max-width: 576px) {
   .stay-updated-box {
     padding: 40px 20px;
@@ -758,16 +748,12 @@ section.container {
   }
 }
 
-/* ===============================
-   FOOTER
-================================ */
+/*FOOTER */
 footer {
   font-weight: 800;
 }
 
-/* ===============================
-   TECHHUB FOOTER (THEMED)
-================================ */
+
 .e-footer {
   background: var(--blue-strong);
   margin-top: 80px;
@@ -782,7 +768,7 @@ footer {
   box-shadow: 8px 8px 0 var(--ink);
 }
 
-/* Grid */
+
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr repeat(4, 1fr);
@@ -790,7 +776,7 @@ footer {
   margin-bottom: 30px;
 }
 
-/* Brand */
+
 .footer-brand h4 {
   font-weight: 900;
   margin-bottom: 14px;
@@ -804,7 +790,7 @@ footer {
   color: #fff;
 }
 
-/* Socials */
+
 .footer-socials {
   margin-top: 18px;
   display: flex;
@@ -833,7 +819,7 @@ footer {
 }
 
 
-/* Columns */
+
 .footer-col h6 {
   font-weight: 900;
   margin-bottom: 14px;
@@ -861,7 +847,7 @@ footer {
   text-decoration: underline;
 }
 
-/* Bottom bar */
+
 .footer-bottom {
   border-top: 2px solid rgba(255,255,255,0.25);
   padding-top: 18px;
@@ -872,9 +858,7 @@ footer {
 }
 
 
-/* ===============================
-   TESTIMONIALS / REVIEWS
-================================ */
+/*TESTIMONIALS / REVIEWS */
 .testimonials-section {
   margin-top: 90px;
   margin-bottom: 90px;
@@ -893,7 +877,7 @@ footer {
   opacity: 0.85;
 }
 
-/* Card */
+
 .testimonial-card {
   background: #ffffff;
   border: 3px solid var(--ink);
@@ -906,14 +890,14 @@ footer {
   justify-content: space-between;
 }
 
-/* Text */
+
 .testimonial-text {
   font-size: 15px;
   line-height: 1.6;
   font-weight: 600;
 }
 
-/* User */
+
 .testimonial-user {
   margin-top: 22px;
 }
@@ -928,24 +912,22 @@ footer {
   opacity: 0.8;
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .testimonials-header {
     text-align: left;
   }
 }
-/* ===============================
-   TESTIMONIAL QUOTES (FIXED)
-================================ */
+
 .testimonial-text {
   position: relative;
   font-size: 15px;
   line-height: 1.7;
   font-weight: 600;
-  padding: 22px 22px 22px 44px; /* space for quotes */
+  padding: 22px 22px 22px 44px; 
 }
 
-/* Opening quote */
+
 .testimonial-text::before {
   content: "“";
   position: absolute;
@@ -955,11 +937,11 @@ footer {
   font-weight: 900;
   color: var(--neon);
 
-  /* shadow to match theme */
+
   text-shadow: 3px 3px 0 var(--ink);
 }
 
-/* Closing quote */
+
 .testimonial-text::after {
   content: "”";
   position: absolute;
@@ -969,7 +951,7 @@ footer {
   font-weight: 900;
   color: var(--neon);
 
-  /* shadow to match theme */
+
   text-shadow: 3px 3px 0 var(--ink);
 }
 
@@ -977,9 +959,7 @@ footer {
 
 
 
-/* ===============================
-   TECHHUB DIVIDER
-================================ */
+/* TECHHUB DIVIDER */
 .techhub-divider.dotted {
   margin-top: 7%;
   height: 0;
@@ -989,9 +969,7 @@ footer {
 }
 
 
-/* ===============================
-   FOOTER RESPONSIVE
-================================ */
+/*FOOTER RESPONSIVE*/
 @media (max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -1009,9 +987,7 @@ footer {
 }
 
 
-/* ===============================
-  RESPONSIVE
-================================ */
+/*RESPONSIVE*/
 @media (max-width: 768px) {
   .carousel-card {
     flex: 0 0 100%;
@@ -1026,9 +1002,7 @@ footer {
   }
 }
 
-/* ===============================
-   LOGIN PAGE STYLES
-================================ */
+/* LOGIN PAGE STYLES */
 .login-section {
   margin-top: 80px;
 }
@@ -1078,9 +1052,7 @@ footer {
   background:yellow;
 }
 
-/* ===============================
-   GET SPONSORED PAGE
-================================ */
+/*GET SPONSORED PAGE*/
 .sponsor-header {
   margin-top: 80px;
   margin-bottom: 40px;
@@ -1095,7 +1067,7 @@ footer {
   opacity: 0.85;
 }
 
-/* Form Card */
+
 .sponsor-form-section {
   max-width: 760px;
   margin-bottom: 100px;
@@ -1109,7 +1081,7 @@ footer {
   box-shadow: 8px 8px 0 var(--ink);
 }
 
-/* Image Preview */
+
 .image-preview {
   height: 140px;
   border: 3px dashed var(--ink);
@@ -1121,7 +1093,7 @@ footer {
   color: #666;
 }
 
-/* Slot Info */
+
 .slot-info {
   background: var(--blue-electric);
   border: 3px solid var(--ink);
@@ -1131,7 +1103,7 @@ footer {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Submit Button */
+
 .sponsor-submit-btn {
   width: 100%;
   background: var(--neon);
@@ -1149,7 +1121,7 @@ footer {
   box-shadow: 6px 6px 0 var(--ink);
 }
 
-/* Host-only action button */
+
 .btn-host-action {
   background: transparent;
   color: var(--ink);
@@ -1166,9 +1138,7 @@ footer {
   border-style: solid;
 }
 
-/* ===============================
-   CONTACT / PREFERENCES PAGE
-================================ */
+/*CONTACT / PREFERENCES PAGE*/
 .contact-header {
   margin-top: 80px;
   margin-bottom: 40px;
@@ -1183,7 +1153,7 @@ footer {
   opacity: 0.85;
 }
 
-/* Form */
+
 .contact-form-section {
   max-width: 780px;
   margin-bottom: 100px;
@@ -1197,7 +1167,7 @@ footer {
   box-shadow: 8px 8px 0 var(--ink);
 }
 
-/* Option grid */
+
 .option-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1227,7 +1197,7 @@ footer {
   background: var(--neon);
 }
 
-/* Tag selector */
+
 .tag-selector {
   display: flex;
   flex-wrap: wrap;
@@ -1249,16 +1219,14 @@ footer {
   color: #fff;
 }
 
-/* ===============================
-   TECH TAGS (PURE CSS :has)
-================================ */
+
 .tag-selector {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-/* Base tag */
+
 .tech-tag {
   background: #fff;
   border: 3px solid var(--ink);
@@ -1270,12 +1238,12 @@ footer {
   transition: all 0.15s ease;
 }
 
-/* Hide checkbox */
+
 .tech-tag input {
   display: none;
 }
 
-/* SELECTED STATE – PURE CSS */
+
 .tech-tag:has(input:checked) {
   background: var(--blue-electric);
   color: #fff;
@@ -1284,7 +1252,7 @@ footer {
 }
 
 
-/* Submit */
+
 .contact-submit-btn {
   width: 100%;
   background: var(--neon);
@@ -1297,7 +1265,7 @@ footer {
 }
 
 
-/* Base card */
+
 .option-card {
   position: relative;
   background: #fff;
@@ -1311,12 +1279,12 @@ footer {
   transition: all 0.15s ease;
 }
 
-/* Hide checkbox */
+
 .option-card input {
   display: none;
 }
 
-/* SELECTED STATE – PURE CSS */
+
 .option-card:has(input:checked) {
   background: var(--neon);
   transform: translate(-2px, -2px);
@@ -1324,16 +1292,9 @@ footer {
 }
 
 
+/*REVIEW PAGE */
 
 
-
-
-
-/* ===============================
-   REVIEW PAGE
-================================ */
-
-/* Header */
 .review-header {
   margin-top: 80px;
   margin-bottom: 40px;
@@ -1348,13 +1309,13 @@ footer {
   opacity: 0.85;
 }
 
-/* Form Section */
+
 .review-form-section {
   max-width: 720px;
   margin-bottom: 100px;
 }
 
-/* Form Card */
+
 .review-form {
   background: #ffffff;
   border: 4px solid var(--ink);
@@ -1363,7 +1324,7 @@ footer {
   box-shadow: 8px 8px 0 var(--ink);
 }
 
-/* Inputs */
+
 .techhub-input {
   border: 3px solid var(--ink);
   border-radius: 14px;
@@ -1377,7 +1338,7 @@ footer {
   box-shadow: 5px 5px 0 var(--ink);
 }
 
-/* Submit Button */
+
 .review-submit-btn {
   width: 100%;
   background: var(--neon);
@@ -1395,9 +1356,7 @@ footer {
   box-shadow: 6px 6px 0 var(--ink);
 }
 
-/* ===============================
-   ANONYMOUS REVIEW TOGGLE
-================================ */
+
 .anonymous-toggle {
   display: flex;
   align-items: center;
@@ -1405,7 +1364,7 @@ footer {
   margin-bottom: 24px;
 }
 
-/* Toggle switch */
+
 .toggle-label {
   position: relative;
   width: 52px;
@@ -1442,7 +1401,7 @@ footer {
   transition: transform 0.2s;
 }
 
-/* Checked state */
+
 .toggle-label input:checked + .toggle-slider {
   background: var(--neon);
 }
@@ -1451,20 +1410,18 @@ footer {
   transform: translateX(22px);
 }
 
-/* Text */
+
 .toggle-text {
   font-weight: 800;
 }
 
 
-/* ===============================
-   RATING SLIDER WITH STARS
-================================ */
+/*RATING SLIDER WITH STARS*/
 .rating-field {
   margin-bottom: 28px;
 }
 
-/* Stars row */
+
 .rating-stars {
   display: flex;
   gap: 8px;
@@ -1479,12 +1436,12 @@ footer {
   transition: color 0.2s;
 }
 
-/* Active stars */
+
 .rating-stars span.active {
   color: var(--neon);
 }
 
-/* Range slider */
+
 #ratingRange {
   width: 100%;
   appearance: none;
@@ -1497,7 +1454,7 @@ footer {
   cursor: pointer;
 }
 
-/* Slider track fill */
+
 #ratingRange::-webkit-slider-runnable-track {
   height: 6px;
   background: linear-gradient(
@@ -1508,7 +1465,7 @@ footer {
   border-radius: 999px;
 }
 
-/* Thumb */
+
 #ratingRange::-webkit-slider-thumb {
   appearance: none;
   width: 20px;
@@ -1520,7 +1477,7 @@ footer {
   box-shadow: 3px 3px 0 var(--ink);
 }
 
-/* Firefox */
+
 #ratingRange::-moz-range-thumb {
   width: 20px;
   height: 20px;
@@ -1536,9 +1493,7 @@ footer {
 }
 
 
-/* ===============================
-   HOST EVENT PAGE STYLES
-================================ */
+/*HOST EVENT PAGE STYLES*/
 .host-event-header {
   margin-top: 80px;
   margin-bottom: 40px;
@@ -1569,7 +1524,7 @@ footer {
   opacity: 0.8;
 }
 
-/* Host Event Form */
+
 .host-event-section {
   margin-bottom: 100px;
 }
@@ -1599,7 +1554,7 @@ footer {
   color: white;
 }
 
-/* Format Options */
+
 .format-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1647,7 +1602,7 @@ footer {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Form Actions */
+
 .form-actions {
   display: flex;
   gap: 16px;
@@ -1672,7 +1627,7 @@ footer {
   box-shadow: 6px 6px 0 var(--ink);
 }
 
-/* Sidebar */
+
 .host-sidebar {
   position: sticky;
   top: 100px;
@@ -1713,7 +1668,7 @@ footer {
   border-bottom: none;
 }
 
-/* Review Steps */
+
 .review-steps {
   display: flex;
   flex-direction: column;
@@ -1766,7 +1721,7 @@ footer {
   box-shadow: 5px 5px 0 var(--ink);
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 768px) {
   .format-options {
     grid-template-columns: 1fr;
@@ -1783,9 +1738,7 @@ footer {
 }
 
 
-/* ===============================
-   HOST EVENT SHOWCASE
-================================ */
+/*HOST EVENT SHOWCASE*/
 .host-event-showcase {
   margin-top: 90px;
   margin-bottom: 90px;
@@ -1930,7 +1883,7 @@ footer {
   opacity: 0.9;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 768px) {
   .host-showcase-wrapper {
     padding: 40px 20px;
@@ -1966,11 +1919,9 @@ footer {
   }
 }
 
-/* ===============================
-   STUDENT PROFILE PAGE
-================================ */
+/*STUDENT PROFILE PAGE*/
 
-/* Profile Header */
+
 .profile-header {
   margin-top: 60px;
   margin-bottom: 40px;
@@ -2030,7 +1981,7 @@ footer {
   text-align: center;
 }
 
-/* Profile Stats */
+
 .profile-stats-section {
   margin-bottom: 60px;
 }
@@ -2073,7 +2024,7 @@ footer {
   opacity: 0.8;
 }
 
-/* Profile Content */
+
 .profile-content {
   margin-bottom: 80px;
 }
@@ -2103,7 +2054,7 @@ footer {
   margin-right: 12px;
 }
 
-/* Hackathon Participation */
+
 .participation-list {
   display: flex;
   flex-direction: column;
@@ -2175,7 +2126,7 @@ footer {
   gap: 4px;
 }
 
-/* Workshop Grid */
+
 .workshop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2230,7 +2181,7 @@ footer {
   color: var(--blue-strong);
 }
 
-/* Certificate List */
+
 .certificate-list {
   display: flex;
   flex-direction: column;
@@ -2285,7 +2236,7 @@ footer {
   color: var(--blue-strong);
 }
 
-/* Course List */
+
 .course-list {
   display: flex;
   flex-direction: column;
@@ -2343,7 +2294,7 @@ footer {
   opacity: 0.8;
 }
 
-/* Skills Tags */
+
 .skills-tags {
   display: flex;
   flex-wrap: wrap;
@@ -2368,7 +2319,7 @@ footer {
   box-shadow: 3px 3px 0 var(--ink);
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 768px) {
   .profile-hero {
     padding: 30px 20px;
@@ -2418,11 +2369,9 @@ footer {
 
 
 
-/*new css under test*/
 
-/* ===============================
-   LOGIN PAGE STYLES
-================================ */
+
+/*LOGIN PAGE STYLES*/
 .login-section {
   margin-top: 80px;
 }
@@ -2472,9 +2421,9 @@ footer {
   background: yellow;
 }
 
-/* =============================== */
+
 /* CARD LINK STYLES */
-/* =============================== */
+
 .card-link {
   text-decoration: none;
   color: inherit;
@@ -2493,10 +2442,8 @@ footer {
 
 
 
-/* BOOTCAMP CARD */
-/* ===============================
-   FEATURED WORKSHOPS (THEMED)
-================================ */
+
+/*FEATURED WORKSHOPS (THEMED)*/
 .workshops-section {
   margin-top: 80px;
 }
@@ -2520,7 +2467,7 @@ footer {
   opacity: 0.85;
 }
 
-/* Workshop Card */
+
 .workshop-card {
   position: relative;
   background: #ffffff;
@@ -2531,7 +2478,7 @@ footer {
   height: 100%;
 }
 
-/* Tag + Price */
+
 .workshop-tag {
   display: inline-block;
   background: var(--neon);
@@ -2550,7 +2497,7 @@ footer {
   color: var(--blue-strong);
 }
 
-/* Text */
+
 .workshop-card h5 {
   margin-top: 18px;
   font-weight: 900;
@@ -2561,7 +2508,7 @@ footer {
   opacity: 0.9;
 }
 
-/* Info */
+
 .workshop-info {
   list-style: none;
   padding: 0;
@@ -2573,7 +2520,7 @@ footer {
   font-weight: 600;
 }
 
-/* Button */
+
 .workshop-btn {
   width: 100%;
   background: var(--blue-strong);
@@ -2591,7 +2538,7 @@ footer {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .workshops-title-row {
     flex-direction: column;
@@ -2599,9 +2546,7 @@ footer {
   }
 }
 
-/* ===============================
-   UPCOMING HACKATHONS (THEMED)
-================================ */
+/*UPCOMING HACKATHONS*/
 .hackathons-section {
   margin-top: 80px;
 }
@@ -2625,7 +2570,7 @@ footer {
   opacity: 0.85;
 }
 
-/* Hackathon Card */
+
 .hackathon-card {
   position: relative;
   background: #ffffff;
@@ -2637,7 +2582,7 @@ footer {
   color: #000000;
 }
 
-/* Tag + Prize */
+
 .hackathon-tag {
   display: inline-block;
   background: var(--neon);
@@ -2656,7 +2601,7 @@ footer {
   color: var(--blue-strong);
 }
 
-/* Text */
+
 .hackathon-card h5 {
   margin-top: 18px;
   font-weight: 900;
@@ -2667,7 +2612,7 @@ footer {
   opacity: 0.9;
 }
 
-/* Info */
+
 .hackathon-info {
   list-style: none;
   padding: 0;
@@ -2679,7 +2624,7 @@ footer {
   font-weight: 600;
 }
 
-/* Button */
+
 .hackathon-btn {
   width: 100%;
   background: var(--blue-strong);
@@ -2697,7 +2642,7 @@ footer {
   box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .hackathons-title-row {
     flex-direction: column;
@@ -2705,9 +2650,7 @@ footer {
   }
 }
 
-/* ===============================
-   HERO_H
-================================ */
+/*HERO_H*/
 .hero_h {
   background: linear-gradient(135deg, var(--blue-strong), var(--blue-electric));
   border: 4px solid var(--ink);
@@ -2741,7 +2684,7 @@ footer {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Buttons */
+
 .btn-warning {
   background: var(--neon);
   border: 3px solid var(--ink);
@@ -2755,7 +2698,7 @@ footer {
 }
 
 
-/* Interactive Skill Badges */
+
 .skill-badge {
   display: inline-block;
   background: var(--blue-electric);
@@ -2776,7 +2719,7 @@ footer {
   border-color: var(--ink);
 }
 
-/* Timeline Progress */
+
 .timeline-item {
   position: relative;
   padding-left: 40px;
@@ -2807,7 +2750,7 @@ footer {
   font-weight: 900;
 }
 
-/* Enhanced Register Button */
+
 .register-btn {
   background: var(--neon);
   color: var(--ink);
@@ -2847,7 +2790,7 @@ footer {
   transition: margin-left 0.3s ease;
 }
 
-/* Interactive Badges */
+
 .interactive-badge {
   display: inline-block;
   padding: 8px 16px;
@@ -2881,11 +2824,11 @@ footer {
   color: white;
 }
 
-/* Trophy Colors */
+
 .text-gold { color: #FFD700; }
 .text-bronze { color: #CD7F32; }
 
-/* Countdown Timer */
+
 .countdown-timer {
   background: rgba(255, 255, 255, 0.9);
   border: 2px solid var(--ink);
@@ -2925,9 +2868,7 @@ footer {
   color: var(--ink);
 }
 
-/* ===============================
-  ICON GRID
-================================ */
+/*ICON GRID */
 .icon-card {
   background: var(--neon);
   border: 3px solid var(--ink);

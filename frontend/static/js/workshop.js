@@ -1,9 +1,9 @@
 let workshops = [];
 let workshopBST = null;
 
-/* =============================
-   BINARY SEARCH TREE CLASS
-============================= */
+
+   //BINARY SEARCH TREE CLASS
+
 class WorkshopBSTNode {
   constructor(workshop) {
     this.workshop = workshop;
@@ -76,9 +76,9 @@ class WorkshopBST {
   }
 }
 
-// -----------------------------
+
 // LOAD WORKSHOPS FROM API
-// -----------------------------
+
 document.addEventListener("DOMContentLoaded", loadWorkshops);
 
 function loadWorkshops() {
@@ -98,9 +98,9 @@ function loadWorkshops() {
     });
 }
 
-// -----------------------------
+
 // RENDER WORKSHOPS
-// -----------------------------
+
 function renderWorkshops(filtered = workshops) {
   const container = document.getElementById("workshopsContainer");
   container.innerHTML = "";
@@ -118,7 +118,7 @@ function renderWorkshops(filtered = workshops) {
 
     const duration = getDuration(w.start_time, w.end_time);
 
-    const instructor = "Host"; // placeholder (host not sent in API yet)
+    const instructor = "Host"; 
 
     const card = `
       <div class="col-12 workshop-card-wrapper">
@@ -145,9 +145,9 @@ function renderWorkshops(filtered = workshops) {
   });
 }
 
-// -----------------------------
+
 // FILTER WORKSHOPS (CLIENT SIDE)
-// -----------------------------
+
 function filterWorkshops() {
   const search = document.getElementById("searchInput")?.value?.toLowerCase() || "";
   const skill = document.getElementById("skillFilter")?.value || "";
@@ -165,16 +165,16 @@ function filterWorkshops() {
   renderWorkshops(filtered);
 }
 
-// -----------------------------
+
 // EVENT LISTENERS
-// -----------------------------
+
 document.getElementById("searchInput")?.addEventListener("input", filterWorkshops);
 document.getElementById("skillFilter")?.addEventListener("change", filterWorkshops);
 document.getElementById("skillLevelFilter")?.addEventListener("change", filterWorkshops);
 
-// -----------------------------
+
 // HELPERS
-// -----------------------------
+
 function getDuration(start, end) {
   if (!start || !end) return "Flexible";
 

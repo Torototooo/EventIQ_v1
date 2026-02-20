@@ -2,9 +2,9 @@ let debounceTimer;
 let allHackathons = [];
 let hackathonBST = null;
 
-/* =============================
-   BINARY SEARCH TREE CLASS
-============================= */
+
+  // BINARY SEARCH TREE CLASS
+
 class HackathonBSTNode {
   constructor(hackathon) {
     this.hackathon = hackathon;
@@ -66,7 +66,7 @@ class HackathonBST {
       results.push(node.hackathon);
     }
 
-    // Search both subtrees (since we're matching substrings, not exact comparisons)
+    // Search both subtrees 
     this._searchNode(node.left, searchTerm, results);
     this._searchNode(node.right, searchTerm, results);
   }

@@ -1,6 +1,6 @@
-// Simulated sponsored slots (frontend-only)
+
 let maxSlots = 6;
-let usedSlots = 3; // mock value
+let usedSlots = 3; 
 
 const slotCount = document.getElementById("slotCount");
 const imageUpload = document.getElementById("imageUpload");

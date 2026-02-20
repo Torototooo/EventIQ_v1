@@ -1,9 +1,9 @@
 let bootcamps = [];
 let bootcampBST = null;
 
-/* =============================
-   BINARY SEARCH TREE CLASS
-============================= */
+
+  //BINARY SEARCH TREE CLASS
+
 class BootcampBSTNode {
   constructor(bootcamp) {
     this.bootcamp = bootcamp;
@@ -63,7 +63,7 @@ class BootcampBST {
       results.push(node.bootcamp);
     }
 
-    // Search both subtrees (since we're matching substrings, not exact comparisons)
+    // Search both subtrees 
     this._searchNode(node.left, searchTerm, results);
     this._searchNode(node.right, searchTerm, results);
   }
@@ -83,9 +83,9 @@ class BootcampBST {
   }
 }
 
-/* ----------------------------
-   LOAD BOOTCAMPS FROM DB
----------------------------- */
+
+   //LOAD BOOTCAMPS FROM DB
+
 document.addEventListener("DOMContentLoaded", loadBootcamps);
 
 function loadBootcamps() {
@@ -97,7 +97,7 @@ function loadBootcamps() {
     .then(data => {
       bootcamps = data;
       
-      // Build Binary Search Tree
+      
       bootcampBST = new BootcampBST();
       bootcamps.forEach(bootcamp => {
         bootcampBST.insert(bootcamp);
@@ -110,9 +110,9 @@ function loadBootcamps() {
     });
 }
 
-/* ----------------------------
-   RENDER BOOTCAMPS
----------------------------- */
+
+  // RENDER BOOTCAMPS
+
 function renderBootcamps(filtered = bootcamps) {
   const container = document.getElementById("bootcampsContainer");
   if (!container) return;
@@ -125,13 +125,13 @@ function renderBootcamps(filtered = bootcamps) {
   }
 
   filtered.forEach(b => {
-    // 💰 Price
+    
     const priceText =
       b.registration_fee && Number(b.registration_fee) > 0
         ? `₹${b.registration_fee}`
         : "Free";
 
-    // ⏱ Duration (days → weeks if large)
+    
     let durationText = "Flexible";
     if (b.duration_days) {
       durationText =
@@ -165,9 +165,9 @@ function renderBootcamps(filtered = bootcamps) {
   });
 }
 
-/* ----------------------------
-   FILTER BOOTCAMPS (using BST)
----------------------------- */
+
+   //FILTER BOOTCAMPS (using BST)
+
 function filterBootcamps() {
   const search = document.getElementById("searchInput").value.toLowerCase();
   const price = document.getElementById("priceFilter").value;
@@ -202,9 +202,9 @@ function filterBootcamps() {
   renderBootcamps(filtered);
 }
 
-/* ----------------------------
-   EVENT LISTENERS
----------------------------- */
+
+   // EVENT LISTENERS
+
 ["searchInput", "priceFilter", "skillFilter", "durationFilter"]
   .forEach(id => {
     const el = document.getElementById(id);

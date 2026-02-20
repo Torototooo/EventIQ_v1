@@ -31,7 +31,7 @@ function loadLatestHackathons() {
 
             data.forEach(h => {
 
-                // 💰 REGISTRATION FEE LOGIC (FIXED)
+                
                 const priceText =
                     h.registration_fee && Number(h.registration_fee) > 0
                         ? `₹${h.registration_fee}`
@@ -77,7 +77,7 @@ function loadLatestWorkshops() {
         .then(res => res.json())
         .then(data => {
             const container = document.getElementById("workshopsContainer");
-            if (!container) return;   // safety
+            if (!container) return;   
 
             container.innerHTML = "";
 
