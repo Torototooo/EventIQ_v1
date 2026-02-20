@@ -1396,12 +1396,62 @@ def signup_google():
 
         full_name = request.form.get("full_name")
         password = request.form.get("password")
+        is_host = request.form.get("is_host")
+
+        email = session["google_email"]
+
+        # 🔥 Prevent duplicate email
+        if User.query.filter_by(email=email).first() or Host.query.filter_by(email=email).first():
+            flash("Email already registered.", "danger")
+            return redirect(url_for("login"))
+
+        # HOST SIGNUP
+        if is_host:
+
+            logo_filename = None
+            logo_file = request.files.get("company_logo")
+
+            if logo_file and allowed_file(logo_file.filename):
+                filename = secure_filename(logo_file.filename)
+                logo_filename = f"{int(datetime.utcnow().timestamp())}_{filename}"
+                logo_path = os.path.join(app.config["UPLOAD_FOLDER"], logo_filename)
+                logo_file.save(logo_path)
+
+            host = Host(
+                full_name=full_name,
+                email=email,
+                company_name=request.form.get("company_name"),
+                company_logo=logo_filename,  # ✅ SAVE IMAGE NAME
+                website=request.form.get("website"),
+                city=request.form.get("city"),
+                state=request.form.get("state"),
+                created_at=datetime.utcnow(),
+                last_login=None
+            )
+
+            host.set_password(password)
+
+            db.session.add(host)
+            db.session.commit()
+
+            session.pop("google_email", None)
+            session.pop("google_name", None)
+
+            session["host_id"] = host.id
+            session["role"] = "host"
+            session["name"] = host.full_name
+
+            flash("Host account created via Google!", "success")
+            return redirect(url_for("index"))
+
+        # NORMAL USER SIGNUP
+
         skills_list = request.form.getlist("skills")
         skills_str = ",".join(skills_list)
 
         user = User(
             full_name=full_name,
-            email=session["google_email"],
+            email=email,
             description=request.form.get("description"),
             college=request.form.get("college"),
             course=request.form.get("course"),
@@ -1427,7 +1477,6 @@ def signup_google():
 
         flash("Account created successfully via Google!", "success")
         return redirect(url_for("index"))
-
 
     return render_template(
         "signup_google.html",

@@ -12,8 +12,8 @@ app = Flask(
     static_folder="../frontend/static"
 )
 
-app.config['GOOGLE_CLIENT_ID'] = 'Google client id'
-app.config['GOOGLE_CLIENT_SECRET'] = 'Google client secret'
+app.config['GOOGLE_CLIENT_ID'] = ''
+app.config['GOOGLE_CLIENT_SECRET'] = ''
 
 oauth = OAuth(app)
 
@@ -31,7 +31,7 @@ google = oauth.register(
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'mail'
+app.config['MAIL_USERNAME'] = ''
 app.config['MAIL_PASSWORD'] = ''
 app.config['MAIL_DEFAULT_SENDER'] = 'EventIQ '
 
