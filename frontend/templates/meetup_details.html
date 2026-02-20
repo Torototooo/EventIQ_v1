@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+{% block title %}Hackathons | TechHub{% endblock %}
+
+{% block content %}
+<!-- MEETUP HERO -->
+<section class="container hero_h mt-5">
+  <div class="row align-items-center">
+    <div class="col-lg-8">
+      <h1 class="fw-bold display-5">{{ event.title }}</h1>
+      <p class="text-muted mt-3">{{ event.description }}</p>
+      <div class="mt-4">
+        <span class="interactive-badge date-badge"><i class="bi bi-calendar-event me-1"></i>{{ event.start_date }} - {{ event.end_date }}</span>
+        <span class="interactive-badge location-badge"><i class="bi bi-geo-alt-fill me-1"></i>{{ event.location }}</span>
+        <span class="interactive-badge participants-badge"><i class="bi bi-people-fill me-1"></i>{{event.attending}} attending</span>
+      </div>
+<!--      <div class="countdown-timer">-->
+<!--        <h5>Meetup Starts In</h5>-->
+<!--        <div class="countdown-display">-->
+<!--          <div class="countdown-item">-->
+<!--            <span id="days">&#45;&#45;</span>-->
+<!--            <span class="countdown-label">Days</span>-->
+<!--          </div>-->
+<!--          <div class="countdown-item">-->
+<!--            <span id="hours">&#45;&#45;</span>-->
+<!--            <span class="countdown-label">Hours</span>-->
+<!--          </div>-->
+<!--          <div class="countdown-item">-->
+<!--            <span id="minutes">&#45;&#45;</span>-->
+<!--            <span class="countdown-label">Minutes</span>-->
+<!--          </div>-->
+<!--          <div class="countdown-item">-->
+<!--            <span id="seconds">&#45;&#45;</span>-->
+<!--            <span class="countdown-label">Seconds</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+        <div class="flex  mt-4">
+            <div class="d-inline-flex">
+                {% if already_registered %}
+                  <button class="hero-btn primary" disabled>
+                    <span>✔ Already Registered</span>
+                  </button>
+
+                {% elif event.max_participants and event.attending >= event.max_participants %}
+                  <button class="hero-btn primary" disabled>
+                    <span>Event Full</span>
+                  </button>
+
+                {% else %}
+                  <form method="POST" action="{{ url_for('participate_event', event_id=event.id) }}">
+                    <button class="hero-btn primary">
+                      <span>
+                        {% if event.registration_fee and event.registration_fee > 0 %}
+                          <strong>Registration Fee:</strong> ₹{{ event.registration_fee }}
+                        {% else %}
+                          <strong>Free Event</strong>
+                        {% endif %}
+                      </span>
+                    </button>
+                  </form>
+                {% endif %}
+            </div>
+            <div class="d-inline-flex">
+                <a class="hero-btn secondary mt-3  px-4 ms-2" href="/meetup">Back to Meetups</a>
+            </div>
+            <div class="d-inline-flex">
+                <div class="rating-display">
+                    <a href="{{ url_for('review_page',
+                                 event_type=event.type_of_event,
+                                 event_id=event.id) }}"
+                    class="hero-btn secondary mt-3 px-4">
+                        {% for i in range(1, 6) %}
+                            {% if i <= avg_rating %}
+                                <span style="color: gold;">★</span>
+                            {% else %}
+                                <span style="color: lightgray;">★</span>
+                            {% endif %}
+                        {% endfor %}
+                        <strong>{{ avg_rating }}</strong>
+                        <small>({{ total_reviews }} reviews)</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 text-center">
+      <div class="image-placeholder" style="height: 200px;">
+        {% if event.banner_image %}
+            <img src="{{ url_for('static',
+                                 filename='uploads/company_logos/' + event.banner_image) }}"
+                 alt="Event Banner"
+                 class="img-fluid w-75"
+            >
+        {% else %}
+            <img src="{{ url_for('static',
+                                 filename='images/default_banner.png') }}"
+                 alt="Default Banner"
+                class="img-fluid w-75"
+            >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEETUP DETAILS -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-info-circle me-2"></i>Meetup Details</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <p><i class="bi bi-clock me-2"></i><strong>Time:</strong> 6:00 PM – 9:00 PM</p>
+        <p><i class="bi bi-calendar me-2"></i><strong>Date:</strong> {{ event.start_date }}</p>
+        <p><i class="bi bi-geo-alt me-2"></i><strong>Venue:</strong> {{ event.location }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><i class="bi bi-people me-2"></i><strong>Expected Attendees:</strong> 45</p>
+        <p><i class="bi bi-chat-dots me-2"></i><strong>Language:</strong> English</p>
+        <p><i class="bi bi-cup-hot me-2"></i><strong>Food & Drinks:</strong> Provided</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-mic me-2"></i>Speakers & Agenda</h4>
+    <div class="timeline">
+      <div class="timeline-item">
+        <i class="bi bi-person-circle me-2"></i><strong>6:00 PM - 6:30 PM:</strong> Welcome & Networking
+      </div>
+      <div class="timeline-item">
+        <i class="bi bi-chat-square-text me-2"></i><strong>6:30 PM - 7:15 PM:</strong> "Modern JavaScript Features" by Alex Chen
+      </div>
+      <div class="timeline-item">
+        <i class="bi bi-chat-square-text me-2"></i><strong>7:15 PM - 8:00 PM:</strong> "React Performance Tips" by Sarah Johnson
+      </div>
+      <div class="timeline-item">
+        <i class="bi bi-chat-square-text me-2"></i><strong>8:00 PM - 8:30 PM:</strong> Lightning Talks & Open Mic
+      </div>
+      <div class="timeline-item">
+        <i class="bi bi-cup-hot me-2"></i><strong>8:30 PM - 9:00 PM:</strong> Networking & Drinks
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-lightbulb me-2"></i>What to Expect</h4>
+    <ul class="list-unstyled">
+      <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Technical presentations on JavaScript topics</li>
+      <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Networking opportunities with fellow developers</li>
+      <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Lightning talks and community sharing</li>
+      <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Free food and beverages</li>
+      <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Casual atmosphere for learning and connecting</li>
+      <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Q&A sessions with speakers</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TARGET AUDIENCE -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-people me-2"></i>Who Should Attend</h4>
+    <div class="d-flex flex-wrap">
+      <span class="skill-badge"><i class="bi bi-code-slash me-1"></i>Frontend Developers</span>
+      <span class="skill-badge"><i class="bi bi-server me-1"></i>Backend Developers</span>
+      <span class="skill-badge"><i class="bi bi-braces me-1"></i>Full-Stack Developers</span>
+      <span class="skill-badge"><i class="bi bi-mortarboard me-1"></i>Students</span>
+      <span class="skill-badge"><i class="bi bi-briefcase me-1"></i>Tech Enthusiasts</span>
+    </div>
+    <p class="mt-3"><i class="bi bi-info-circle me-2 text-primary"></i>All skill levels welcome! Whether you're a beginner or experienced developer, you'll find valuable insights and connections.</p>
+  </div>
+</section>
+
+<!-- VENUE INFO -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-geo-alt me-2"></i>Venue Information</h4>
+    <div class="row">
+      <div class="col-md-8">
+        <h6>Tech Hub Downtown</h6>
+        <p><i class="bi bi-geo-alt-fill me-2"></i>123 Innovation Street, Downtown District</p>
+        <p><i class="bi bi-car-front me-2"></i>Parking available in the building garage</p>
+        <p><i class="bi bi-train me-2"></i>5-minute walk from Central Station</p>
+        <p><i class="bi bi-building me-2"></i>Located on the 5th floor, Room 501</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="image-placeholder" style="height: 150px;">Venue Map</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT MEETUP -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-info-circle me-2"></i>About This Meetup</h4>
+    <p><i class="bi bi-lightbulb me-2 text-warning"></i>Join our monthly JavaScript Developers Meetup, the premier gathering for JavaScript enthusiasts in the city. Whether you're working with React, Node.js, or vanilla JavaScript, this meetup offers a perfect blend of learning and networking.</p>
+    <p>Each month features expert speakers sharing their insights, followed by open discussions and networking opportunities. It's a great way to stay updated with the latest JavaScript trends and connect with like-minded developers.</p>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="container mt-5">
+  <div class="soft-card">
+    <h4><i class="bi bi-question-circle me-2"></i>FAQs</h4>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            <i class="bi bi-ticket me-2"></i>Do I need to RSVP?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <i class="bi bi-check-circle text-success me-2"></i>Yes, please RSVP to help us plan for attendance and refreshments.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            <i class="bi bi-cash me-2"></i>Is there a cost to attend?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <i class="bi bi-check-circle text-success me-2"></i>No, attendance is completely free! We only ask for your RSVP.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            <i class="bi bi-briefcase me-2"></i>Can I bring a plus-one?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <i class="bi bi-check-circle text-success me-2"></i>Yes, feel free to bring colleagues or friends interested in JavaScript development.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/meetup_details.js') }}"></script>
+
+{% endblock %}
+
+
+
+

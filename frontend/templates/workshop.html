@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Hackathons | TechHub{% endblock %}
+
+{% block content %}
+<!-- WORKSHOPS HEADER -->
+<section class="container mt-5">
+  <div class="text-center">
+    <h1 class="fw-bold">All Workshops</h1>
+    <p>Learn from industry experts and enhance your skills</p>
+  </div>
+</section>
+
+<!-- SEARCH AND FILTERS -->
+<section class="container mt-4">
+  <div class="row g-3 align-items-center">
+    <div class="col-md-4">
+      <input type="text" id="searchInput" class="form-control search-input1" placeholder="Search workshops...">
+    </div>
+    <div class="col-md-3">
+      <select id="priceFilter" class="form-select">
+        <option value="">All Prices</option>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select id="skillFilter" class="form-select">
+        <option value="">All Skills</option>
+        <option value="React">React</option>
+        <option value="Machine Learning">Machine Learning</option>
+        <option value="DevOps">DevOps</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+          <select id="skillLevelFilter" class="form-select">
+            <option value="">All Levels</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+            <option value="any">Any Level</option>
+          </select>
+        </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS GRID -->
+<section class="container mt-4">
+  <div class="row g-4" id="workshopsContainer">
+    <!-- Workshop cards will be populated by JS -->
+  </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="static/js/workshop.js"></script>
+{% endblock %}
+
+
