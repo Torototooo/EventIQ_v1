@@ -33,13 +33,13 @@
                 <!-- Event Title -->
                 <div class="mb-3">
                     <label class="form-label fw-bold">Event Title</label>
-                    <input type="text" name="title" class="form-control techhub-input" required>
+                    <input type="text" name="title" class="form-control event-input" required>
                 </div>
 
                 <!-- Event Type -->
                 <div class="mb-3">
                     <label class="form-label fw-bold">Event Type</label>
-                    <select name="event_type" class="form-control techhub-input" required>
+                    <select name="event_type" class="form-control event-input" required>
                         <option value="">Select event type</option>
                         <option value="hackathon">Hackathon</option>
                         <option value="workshop">Workshop</option>
@@ -51,18 +51,18 @@
                 <!-- Description -->
                 <div class="mb-3">
                     <label class="form-label fw-bold">Event Description</label>
-                    <textarea name="description" rows="4" class="form-control techhub-input" required></textarea>
+                    <textarea name="description" rows="4" class="form-control event-input" required></textarea>
                 </div>
 
                 <!-- Date Time -->
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label fw-bold">Start Date & Time</label>
-                        <input type="datetime-local" name="start_datetime" class="form-control techhub-input" required>
+                        <input type="datetime-local" name="start_datetime" class="form-control event-input" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label fw-bold">End Date & Time</label>
-                        <input type="datetime-local" name="end_datetime" class="form-control techhub-input" required>
+                        <input type="datetime-local" name="end_datetime" class="form-control event-input" required>
                     </div>
                 </div>
 
@@ -76,12 +76,12 @@
                             <div class="col-md-6">
                                 <label class="form-label fw-bold">Submission Start Date</label>
                                 <input type="date" name="submission_start_date"
-                                       class="form-control techhub-input">
+                                       class="form-control event-input">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold">Submission End Date</label>
                                 <input type="date" name="submission_end_date"
-                                       class="form-control techhub-input">
+                                       class="form-control event-input">
                             </div>
                         </div>
                     </div>
@@ -93,12 +93,12 @@
                             <div class="col-md-6">
                                 <label class="form-label fw-bold">Judging Start Date</label>
                                 <input type="date" name="judging_start_date"
-                                       class="form-control techhub-input">
+                                       class="form-control event-input">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold">Judging End Date</label>
                                 <input type="date" name="judging_end_date"
-                                       class="form-control techhub-input">
+                                       class="form-control event-input">
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                         <div class="mb-3">
                             <label class="form-label fw-bold">Announcement Date</label>
                             <input type="date" name="winner_announcement_date"
-                                   class="form-control techhub-input">
+                                   class="form-control event-input">
                         </div>
                     </div>
 
@@ -144,24 +144,24 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label">State</label>
-                                <input type="text" name="state" class="form-control techhub-input">
+                                <input type="text" name="state" class="form-control event-input">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">City</label>
-                                <input type="text" name="city" class="form-control techhub-input">
+                                <input type="text" name="city" class="form-control event-input">
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Full Address</label>
-                            <textarea name="location" rows="2" class="form-control techhub-input"></textarea>
+                            <textarea name="location" rows="2" class="form-control event-input"></textarea>
                         </div>
                     </div>
 
                     <div class="online-details" id="onlineDetails" style="display: none;">
                         <div class="mb-3">
                             <label class="form-label">Platform</label>
-                            <select name="platform" class="form-control techhub-input">
+                            <select name="platform" class="form-control event-input">
                                 <option value="">Select Platform</option>
                                 <option value="zoom">Zoom</option>
                                 <option value="teams">Microsoft Teams</option>
@@ -176,7 +176,7 @@
                 <!-- Registration Fee -->
                 <div class="mb-3">
                     <label class="form-label fw-bold">Registration Fee (₹)</label>
-                    <input type="number" name="registration_fee" value="0" class="form-control techhub-input">
+                    <input type="number" name="registration_fee" value="0" class="form-control event-input">
                 </div>
 
                 <!-- Prizes -->
@@ -186,21 +186,21 @@
                     <div class="row g-3">
                         <div class="col-md-4">
                             <label>1st Prize</label>
-                            <input type="number" name="first_prize" class="form-control techhub-input">
+                            <input type="number" name="first_prize" class="form-control event-input">
                         </div>
                         <div class="col-md-4">
                             <label>2nd Prize</label>
-                            <input type="number" name="second_prize" class="form-control techhub-input">
+                            <input type="number" name="second_prize" class="form-control event-input">
                         </div>
                         <div class="col-md-4">
                             <label>3rd Prize</label>
-                            <input type="number" name="third_prize" class="form-control techhub-input">
+                            <input type="number" name="third_prize" class="form-control event-input">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label>Other Rewards</label>
-                        <textarea name="other_rewards" rows="2" class="form-control techhub-input"></textarea>
+                        <textarea name="other_rewards" rows="2" class="form-control event-input"></textarea>
                     </div>
                 </div>
 
@@ -222,7 +222,7 @@
                 <!-- Skill Level -->
                 <div class="mb-3">
                     <label class="form-label fw-bold">Skill Level</label>
-                    <select name="skill_level" class="form-control techhub-input">
+                    <select name="skill_level" class="form-control event-input">
                         <option value="any">Any Level</option>
                         <option value="beginner">Beginner</option>
                         <option value="intermediate">Intermediate</option>
@@ -233,7 +233,7 @@
                 <!-- Max Participants -->
                 <div class="mb-4">
                     <label class="form-label fw-bold">Maximum Participants</label>
-                    <input type="number" name="max_participants" class="form-control techhub-input">
+                    <input type="number" name="max_participants" class="form-control event-input">
                 </div>
 
                 <button type="submit" class="btn host-submit-btn w-100">Publish Event</button>

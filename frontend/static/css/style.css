@@ -959,8 +959,8 @@ footer {
 
 
 
-/* TECHHUB DIVIDER */
-.techhub-divider.dotted {
+/* EventIQ DIVIDER */
+.event-divider.dotted {
   margin-top: 7%;
   height: 0;
   /* border-top: 3px dashed var(--ink); */
@@ -1325,7 +1325,7 @@ footer {
 }
 
 
-.techhub-input {
+.event-input {
   border: 3px solid var(--ink);
   border-radius: 14px;
   padding: 12px 14px;
@@ -1333,7 +1333,7 @@ footer {
   box-shadow: 3px 3px 0 var(--ink);
 }
 
-.techhub-input:focus {
+.event-input:focus {
   outline: none;
   box-shadow: 5px 5px 0 var(--ink);
 }
