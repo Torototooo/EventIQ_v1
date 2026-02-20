@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Service | EventIQ{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h1 class="mb-4">Terms of Service</h1>
+            <p class="text-muted">Last updated: February 19, 2026</p>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4>1. Acceptance of Terms</h4>
+                    <p>By accessing and using EventIQ, you accept and agree to be bound by the terms and provisions of this agreement.</p>
+                    
+                    <h4 class="mt-4">2. Use of Service</h4>
+                    <p>You agree to use EventIQ only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+                    <ul>
+                        <li>Use the service in any way that violates applicable laws or regulations</li>
+                        <li>Impersonate or attempt to impersonate another user or person</li>
+                        <li>Engage in any conduct that restricts or inhibits anyone's use of the service</li>
+                        <li>Use any automated system to access the service</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">3. User Accounts</h4>
+                    <p>When you create an account with us, you must provide accurate and complete information. You are responsible for:</p>
+                    <ul>
+                        <li>Maintaining the security of your account</li>
+                        <li>All activities that occur under your account</li>
+                        <li>Notifying us immediately of any unauthorized use</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">4. Event Registration</h4>
+                    <p>When you register for an event through EventIQ:</p>
+                    <ul>
+                        <li>You agree to attend the event or cancel in advance</li>
+                        <li>Your information will be shared with event organizers</li>
+                        <li>You must comply with event-specific rules and guidelines</li>
+                        <li>Refund policies are determined by individual event organizers</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">5. Content</h4>
+                    <p>Users are responsible for the content they post. You agree not to post content that:</p>
+                    <ul>
+                        <li>Is illegal, harmful, or offensive</li>
+                        <li>Infringes on intellectual property rights</li>
+                        <li>Contains viruses or malicious code</li>
+                        <li>Violates the privacy of others</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">6. Intellectual Property</h4>
+                    <p>The service and its original content, features, and functionality are owned by EventIQ and are protected by international copyright, trademark, and other intellectual property laws.</p>
+                    
+                    <h4 class="mt-4">7. Termination</h4>
+                    <p>We may terminate or suspend your account immediately, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.</p>
+                    
+                    <h4 class="mt-4">8. Limitation of Liability</h4>
+                    <p>EventIQ shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.</p>
+                    
+                    <h4 class="mt-4">9. Changes to Terms</h4>
+                    <p>We reserve the right to modify these terms at any time. We will notify users of any changes by posting the new Terms of Service on this page.</p>
+                    
+                    <h4 class="mt-4">10. Contact Us</h4>
+                    <p>If you have any questions about these Terms, please contact us at <a href="{{ url_for('contact_us') }}">Contact Us</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
