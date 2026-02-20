@@ -9,7 +9,13 @@
       <div class="login-card">
 
         <h2 class="text-center fw-bold mb-4">Sign Up for EventIQ</h2>
-
+          <div class="text-center mt-2">
+              <span>
+                <a href="{{ url_for('google_login') }}" class="btn login-btn w-100 mb-4">
+                    Continue with Google
+                </a>
+              </span>
+            </div>
 
         <form id="signupForm" method="POST" enctype="multipart/form-data">
 
