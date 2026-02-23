@@ -5,6 +5,8 @@ from models import db, Host,Event,User,EventParticipation,Review,UserPreference,
 from werkzeug.utils import secure_filename
 from functools import wraps
 import os
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import io
 import base64
@@ -42,46 +44,9 @@ Team EventIQ
 print("ROUTES.PY LOADED")
 print("ROUTES.PY END")
 
-@app.route("/hosts")
-def show_hosts():
-    hosts = Host.query.all()   # READ from DB
-    return render_template("hosts.html", hosts=hosts)
 
-@app.route("/add-host", methods=["GET", "POST"])
-def add_host():
-    if request.method == "POST":
-        name = request.form["name"]
-        email = request.form["email"]
-        password = request.form["password"]
 
-        host = Host(name=name, email=email, password=password)
-        db.session.add(host)
-        db.session.commit()
 
-        return redirect(url_for("show_hosts"))
-
-    return render_template("add_host.html")
-
-@app.route("/edit-host/<int:id>", methods=["GET", "POST"])
-def edit_host(id):
-    host = Host.query.get_or_404(id)
-
-    if request.method == "POST":
-        host.name = request.form["name"]
-        host.email = request.form["email"]
-        host.password = request.form["password"]
-
-        db.session.commit()
-        return redirect(url_for("show_hosts"))
-
-    return render_template("edit_host.html", host=host)
-
-@app.route("/delete-host/<int:id>")
-def delete_host(id):
-    host = Host.query.get_or_404(id)
-    db.session.delete(host)
-    db.session.commit()
-    return redirect(url_for("show_hosts"))
 
 
 @app.route("/")
@@ -94,10 +59,7 @@ def index():
     user_count=len(users)
 
     reviews = (
-        WebsiteReview.query
-        .order_by(WebsiteReview.created_at.desc())
-        .limit(3)
-        .all()
+        WebsiteReview.query.order_by(WebsiteReview.created_at.desc()).limit(3).all()
     )
 
     return render_template("index.html", reviews=reviews,host_count=host_count,event_count=event_count,user_count=user_count)
@@ -124,8 +86,6 @@ def bootcamp():
 @app.route("/meetup")
 def meetup():
     return render_template("meetup.html")
-
-
 
 
 @app.route("/contact")
@@ -173,12 +133,12 @@ def login():
 
 @app.route("/dashboard")
 def user_dashboard():
-    return "User Dashboard (login successful)"
+    return "User Dashboard login successful"
 
 
 @app.route("/host/dashboard")
 def host_dashboard():
-    return "Host Dashboard (login successful)"
+    return "Host Dashboard login successful"
 
 
 @app.route("/logout")
@@ -304,7 +264,6 @@ def get_hackathons():
 
     hackathons = query.order_by(Event.created_at.desc()).all()
 
-    # Skill (CSV match)
     if skill:
         hackathons = [
             h for h in hackathons
@@ -357,10 +316,8 @@ def latest_hackathons():
             "city": h.city,
             "location": h.location,
 
-            # 💰 IMPORTANT
             "registration_fee": h.registration_fee,
 
-            # optional UI info
             "skill_level": h.skill_level,
             "banner_image": h.banner_image,
 
@@ -408,7 +365,7 @@ def latest_meetups():
         Event.query
         .filter(Event.type_of_event == "meetup",Event.end_date >= date.today())
         .order_by(Event.created_at.desc())
-        .limit(2)   # 2 or 4 depending on your layout
+        .limit(2)
         .all()
     )
 
@@ -446,7 +403,13 @@ def host_required(f):
 @app.route("/host-event")
 @host_required
 def host_event():
-    return render_template("host-event.html")
+    hosts = Host.query.all()
+    users = User.query.all()
+    events = Event.query.all()
+    host_count = len(hosts)
+    event_count = len(events)
+    user_count = len(users)
+    return render_template("host-event.html",host_count=host_count,event_count=event_count,user_count=user_count)
 
 
 
@@ -786,7 +749,7 @@ def event_detail(event_type, event_id):
                 already_registered = True
                 break
 
-    # 🔥 Calculate average rating
+    #  Calculate average rating
     reviews = event.reviews
 
     total_reviews = len(reviews)
@@ -1058,7 +1021,7 @@ def review_page(event_type, event_id):
         type_of_event=event_type
     ).first_or_404()
 
-    # 🔥 If host tries to access review form
+    # If host tries to access review form
     if session.get("role") == "host":
         flash("Hosts cannot submit reviews.", "warning")
         return redirect(url_for(
@@ -1067,14 +1030,14 @@ def review_page(event_type, event_id):
             event_id=event.id
         ))
 
-    # 🔥 If not logged in
+    # If not logged in
     if session.get("role") != "user":
         flash("Please login to submit a review.", "warning")
         return redirect(url_for("login"))
 
     user_id = session.get("user_id")
 
-    # 🔥 If user already reviewed → redirect to review list
+    # If user already reviewed  redirect to review list
     existing_review = Review.query.filter_by(
         user_id=user_id,
         event_id=event_id
@@ -1249,7 +1212,7 @@ def notify_users_about_event(event):
         if not user:
             continue
 
-        # 🔥 Only send if user selected DAILY
+
         if pref.frequency != "daily":
             continue
 
@@ -1269,7 +1232,7 @@ def notify_users_about_event(event):
                 continue
 
         msg = Message(
-            subject=f"New {event.type_of_event.title()} Just Posted 🚀",
+            subject=f"New {event.type_of_event.title()} Just Posted ",
             recipients=[user.email]
         )
 
@@ -1310,7 +1273,6 @@ def submit_web_review():
         flash("Please login first", "warning")
         return redirect(url_for("login"))
 
-    # 🔥 Using EXACT form names
     rating = int(request.form.get("rating"))
     review_text = request.form.get("review_text")
 
@@ -1400,10 +1362,32 @@ def signup_google():
 
         email = session["google_email"]
 
-        # 🔥 Prevent duplicate email
-        if User.query.filter_by(email=email).first() or Host.query.filter_by(email=email).first():
-            flash("Email already registered.", "danger")
-            return redirect(url_for("login"))
+        #  Prevent duplicate email
+        #  Check if already exists as USER
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            session.pop("google_email", None)
+            session.pop("google_name", None)
+
+            session["user_id"] = existing_user.id
+            session["role"] = "user"
+            session["name"] = existing_user.full_name
+
+            flash("Logged in successfully via Google!", "success")
+            return redirect(url_for("index"))
+
+        #  Check if already exists as HOST
+        existing_host = Host.query.filter_by(email=email).first()
+        if existing_host:
+            session.pop("google_email", None)
+            session.pop("google_name", None)
+
+            session["host_id"] = existing_host.id
+            session["role"] = "host"
+            session["name"] = existing_host.full_name
+
+            flash("Logged in successfully via Google!", "success")
+            return redirect(url_for("index"))
 
         # HOST SIGNUP
         if is_host:
@@ -1421,7 +1405,7 @@ def signup_google():
                 full_name=full_name,
                 email=email,
                 company_name=request.form.get("company_name"),
-                company_logo=logo_filename,  # ✅ SAVE IMAGE NAME
+                company_logo=logo_filename,
                 website=request.form.get("website"),
                 city=request.form.get("city"),
                 state=request.form.get("state"),
@@ -1502,8 +1486,6 @@ def help_center():
 
 @app.route("/contact-us", methods=["GET", "POST"])
 def contact_us():
-
-
 
     user_id = session.get("user_id")
     user = User.query.get(user_id)
